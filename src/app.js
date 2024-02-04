@@ -18,12 +18,14 @@ app.engine(".hbs", engine({
 app.set('view engine', '.hbs')
 
 //middlewares
-
 app.use(morgan('dev'))
-
 app.use(express.urlencoded({extended:false}))
 
 
+// statics files
+app.use(express.static(path.join(__dirname,"public")))
+
 // Routs
 app.use(indexRoutes)
+
 export default app
